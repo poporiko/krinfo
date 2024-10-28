@@ -1,0 +1,15 @@
+.vscode
+**/build
+**/dist
+
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
