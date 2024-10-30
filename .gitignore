@@ -2,6 +2,9 @@
 **/build
 **/dist
 
+# Python build files
+*.pyc
+
 # LaTeX build files
 *.aux
 *.bbl
