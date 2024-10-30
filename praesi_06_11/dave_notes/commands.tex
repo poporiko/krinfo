@@ -1,0 +1,40 @@
+% This "\code{my code}" can be used to highlight small code snippets in the text like names of variables or methods.
+\usepackage{multirow}
+\newcommand{\code}[1]{\textcolor{black}{\texttt{#1}}}
+% multirow with shortstack to allow line breaks
+\newcommand{\cell}[1]{
+	\multirow{2}{*}{\shortstack[l]{#1}}
+}
+
+% multirow with more control
+\newcommand{\mcell}[3]{\multirow{#1}{*}{\shortstack[#2]{#3}}}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
+\newcommand{\note}[1]{\textcolor{blue}{\textbf{Note:} #1}}
+\newcommand{\important}[1]{\textcolor{green}{\textbf{Important:} #1}}
+\newcommand{\highlight}[1]{\colorbox{yellow}{#1}}
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+\newcommand{\gl}{\glqq}
+\newcommand{\gr}{\grqq\ }
+\newcommand{\ul}[1]{\underline{#1}}
+
+
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+\newcommand*\xoverline[2][0.75]{%
+	\sbox{\myboxA}{$\m@th#2$}%
+	\setbox\myboxB\null% Phantom box
+	\ht\myboxB=\ht\myboxA%
+	\dp\myboxB=\dp\myboxA%
+	\wd\myboxB=#1\wd\myboxA% Scale phantom
+	\sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+	\setlength\mylenA{\the\wd\myboxA}%   calc width diff
+	\addtolength\mylenA{-\the\wd\myboxB}%
+	\ifdim\wd\myboxB<\wd\myboxA%
+		\rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+	\else
+		\hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+	\fi}
+\makeatother

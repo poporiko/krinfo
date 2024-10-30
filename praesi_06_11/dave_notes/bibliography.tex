@@ -1,0 +1,36 @@
+% Description: This file contains the bibliography settings
+% Based on: https://github.com/PKief/latex-thesis-template  -- thank you
+% Add your source:
+\newcommand{\bibfile}{ref.bib}
+
+\usepackage[
+	backend=biber,
+	style=alphabetic, % alphabetic
+	% citestyle=authoryear-icomp, % alphabetic, authortitle
+	date=short,
+	% backref=true, % Display pages on which the reference is used
+	maxnames=1, % affects the cites
+	maxbibnames=3, % affects the bibliography
+	pagetracker=true,
+	isbn=false,
+	url=false,
+	% block=ragged, % break urls
+	% firstinits=true, % shorten first names
+	backrefstyle=three+ % Combine pages
+]{biblatex}
+
+% Distance between bibliographical references
+\setlength{\bibitemsep}{.5em}
+
+% Indentation after the first line
+\setlength{\bibhang}{2em}
+
+% URL in the bibliography is in angle brackets
+\DeclareFieldFormat{url}{<\url{#1}>}
+
+% break too long urls
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+% Source of the bibliography file
+\bibliography{\bibfile}
